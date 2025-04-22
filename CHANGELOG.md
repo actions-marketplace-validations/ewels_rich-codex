@@ -1,5 +1,10 @@
 # Changelog: rich-codex
 
+## Version 1.2.11 (2025-04-22)
+
+- 🐛 Fix validation error ([#55](https://github.com/ewels/rich-codex/pull/55))
+- ✨ In Github Action, added uv support (`use_uv`), skip Python setup support (`skip_python_setup`), and specific Python version support (`python_verison`).
+
 ## Version 1.2.10 (2025-03-14)
 
 - 🐛 Fix missing required argument ([#53](https://github.com/ewels/rich-codex/pull/53))

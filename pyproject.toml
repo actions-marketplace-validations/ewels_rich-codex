@@ -1,3 +1,66 @@
+[project]
+name = "rich-codex"
+description = "Generate rich images for the GitHub Action 'rich-codex'"
+readme = "README.md"
+license = "MIT"
+maintainers = [{ name = "Phil Ewels", email = "phil@ewels.co.uk" }]
+authors = [{ name = "Phil Ewels", email = "phil@ewels.co.uk" }]
+requires-python = ">=3.7"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dynamic = [
+    "version"
+]
+dependencies = [
+    "rich>=12.4.3",
+    "rich-click>=1.5",
+    "importlib-metadata; python_version < '3.8'",
+    "pyyaml",
+    "levenshtein>=0.18.1",
+    "jsonschema",
+    "GitPython"
+]
+[project.optional-dependencies]
+dev = [
+    "pre-commit",
+]
+cairo = [
+    "CairoSVG>=2.5.2"
+]
+
+[project.urls]
+Documentation = "https://github.com/ewels/rich-codex"
+"Source Code" = "https://github.com/ewels/rich-codex"
+"Issue Tracker" = "https://github.com/ewels/rich-codex/issues"
+[project.scripts]
+rich-codex = "rich_codex.cli:main"
+
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = [
+    "setuptools>=45",
+]
+
+[tool.setuptools.dynamic]
+version = { attr = "rich_codex.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+rich_codex = ["config-schema.yml"]
+
 [tool.black]
 line-length=120
 target-version=['py37']

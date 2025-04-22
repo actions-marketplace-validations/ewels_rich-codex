@@ -73,7 +73,7 @@ class RichImg:
     ):
         """Initialise the RichImg object with core console options."""
         self.command = command
-        self.working_dir = Path.cwd() if working_dir is None else working_dir
+        self.working_dir = Path.cwd() if working_dir is None else Path(working_dir)
         self.snippet = snippet
         self.img_paths = [] if img_paths is None else img_paths
         self.snippet_syntax = snippet_syntax
@@ -107,7 +107,7 @@ class RichImg:
         self.no_confirm = False
         self.aborted = False
         self.source_type = source_type
-        self.source = source
+        self.source = Path(source) if source is not None else None
 
     def __eq__(self, other):
         """Compare RichImg objects for equality."""

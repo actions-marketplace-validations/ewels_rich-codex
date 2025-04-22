@@ -247,11 +247,9 @@ class CodexSearch:
                         local_config["img_paths"] = local_config.get("img_paths", []) + [str(img_path.resolve())]
 
                         # Set other config defaults if not supplied
-                        local_config["working_dir"] = (
-                            Path(local_config["working_dir"]) if "working_dir" in local_config else Path(file).parent
-                        )
+                        local_config["working_dir"] = local_config.get("working_dir", str(Path(file).parent))
                         local_config["source_type"] = local_config.get("source_type", "search")
-                        local_config["source"] = Path(local_config["source"]) if "source" in local_config else file
+                        local_config["source"] = local_config.get("source", str(file))
 
                         local_config = self._merge_local_class_attrs(local_config)
 
